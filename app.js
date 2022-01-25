@@ -18,6 +18,11 @@ app.get("/date", (req, res, next) => {
   res.send({ date });
 });
 
+app.get("/db", (req, res, next) => {
+  const secret = process.env.DB_CRED;
+  res.send({ secret });
+});
+
 app.listen(PORT, () => {
   console.log("app running on port", PORT);
 });
