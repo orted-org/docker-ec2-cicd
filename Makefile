@@ -7,7 +7,7 @@ dcu:
 dcd:
 	docker-compose -f docker-compose.dev.yml down
 dsd:
-	docker stack deploy -c docker-compose.yml node-nginx-stack
+	docker stack deploy --with-registry-auth -c docker-compose.yml node-nginx-stack
 dsrm:
 	docker stack rm node-nginx-stack
 dss:
