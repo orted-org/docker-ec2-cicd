@@ -1,0 +1,12 @@
+{
+  "name": "docker_ci_cd",
+  "version": "1.0.0",
+  "description": "Sample application to show docker ci cd",
+  "main": "app.js",
+  "author": "sunkoshi",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^14.3.0",
+    "express": "^4.17.2"
+  }
+}
