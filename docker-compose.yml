@@ -12,7 +12,7 @@ services:
       restart_policy:
         condition: any
   node-app:
-    image: itsmehs07/dockercicd_img:latest
+    image: 323151757986.dkr.ecr.ap-south-1.amazonaws.com/dockercicd_ecr_img:latest
     env_file:
       - ./.env
     deploy:
