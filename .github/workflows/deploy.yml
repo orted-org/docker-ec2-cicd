@@ -23,12 +23,7 @@ jobs:
       - name: Login to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
-
-      - name: Save secret to .env
-        run: |
-          touch .env
-          echo DB_CRED=${{ secrets.DB_CRED }} > .env
-
+          
       - name: Build, tag, and push image to Amazon ECR
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
@@ -48,6 +43,7 @@ jobs:
           ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} '
             
             #Now we have got the access of EC2 and we will start the deploy .
-            
+
+            export DB_CRED=${{ secrets.DB_CRED }}
             echo ${PASSWORD} | sudo -S docker stack deploy --with-registry-auth -c docker-compose.yml node-nginx-stack
           '
