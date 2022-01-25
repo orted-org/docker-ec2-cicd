@@ -3,7 +3,7 @@ const express = require("express");
 const app = express();
 
 const PORT = process.env.PORT || 8080;
-const API_VERSION = "3.3.3";
+const API_VERSION = "4.0.0";
 
 app.get("/health", (req, res, next) => {
   res.send({ status: "ok" });
