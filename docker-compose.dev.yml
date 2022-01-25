@@ -9,9 +9,7 @@ services:
     depends_on:
       - node-app
   node-app:
-    image: itsmehs07/bukket
-    build:
-      context: .
+    build: .
     env_file:
       - ./.env
     command: node app.js
