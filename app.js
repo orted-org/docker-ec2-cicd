@@ -13,6 +13,11 @@ app.get("/version", (req, res, next) => {
   res.send({ version: API_VERSION });
 });
 
+app.get("/date", (req, res, next) => {
+  const date = new Date();
+  res.send({ date });
+});
+
 app.listen(PORT, () => {
   console.log("app running on port", PORT);
 });
