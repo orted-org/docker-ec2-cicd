@@ -1,0 +1,26 @@
+version: "3"
+services:
+  nginx:
+    image: nginx:stable-alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - node-app
+    deploy:
+      restart_policy:
+        condition: any
+  node-app:
+    image: itsmehs07/dockercicd_img:latest
+    env_file:
+      - ./.env
+    deploy:
+      replicas: 4
+      restart_policy:
+        condition: any
+      update_config:
+        parallelism: 1
+        delay: 5s
+        failure_action: rollback
+    command: node app.js
